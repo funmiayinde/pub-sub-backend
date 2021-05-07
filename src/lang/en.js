@@ -9,7 +9,7 @@ export default {
 		upload_error: 'Error occur while uploading file',
 	},
 
-	subscribes: {
+	pubsubscribes: {
 		create: 'Subscribe successfully created',
 		update: 'Subscribe successfully updated',
 		deleted: 'Subscribe successfully deleted',

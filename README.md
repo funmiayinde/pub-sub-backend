@@ -1,13 +1,13 @@
-# WEB SERVICE
+# PUBSUB WEB SERVICE
 
 ## Description
-Api web service written in NodeJS
+Api web service written in Node and Mongo
 
 ## Local Setup
 
 ### Requirements
 
-- Ensure you have Node.JS and NPM installed on your system
+- Ensure you have Node.JS and Mongo DB installed on your system
 
 
 ### Getting Started

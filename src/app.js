@@ -11,7 +11,10 @@ import middlewareConfig from './setup/middleware';
 /**
  * @author funmiayinde
  **/
-export default apiVerison(config)
+export default mongooseConfig(config)
+	.then(() => {
+		return apiVerison(config);
+	})
 	.then(() => {
 		return expressConfig;
 	})

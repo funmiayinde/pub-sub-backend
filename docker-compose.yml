@@ -1,0 +1,18 @@
+version: '3'
+services:
+    db:
+        image: 'postgres'
+        restart: 'always'
+    api:
+        image: 'pubsub-api'
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        ports:
+        - '3000:3000'
+        depends_on:
+        - db
+        environment:
+        - NODE_ENV=development
+        - PORT=3000
+        - DATABASE_URL=mongodb://localhost:27017/pub_sub_db
