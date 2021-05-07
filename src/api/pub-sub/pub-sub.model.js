@@ -3,15 +3,6 @@ import validations from './pub-sub.validation';
 import mongoose from 'mongoose';
 
 const PubSubModel = new BaseSchema({
-    topic: {
-        type: String,
-    },
-    url: {
-        type: String
-    },
-    subscribers: {
-        type: Array
-    },
     deleted: {
         type: Boolean,
         select: false,
