@@ -21,7 +21,7 @@ module.exports = {
 		expiresIn: 86400,
 	},
 	db: {
-		url: process.env.DB_URL || ''
+		url: process.env.DB_URL || 'mongodb://localhost:27017/pub_sub_db'
 	},
 	cloudinary: {
 		cloud_name: process.env.CLOUDIARY_NAME || '',
