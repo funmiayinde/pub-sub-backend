@@ -38,8 +38,7 @@ export class PubSubController extends AppController {
         try {
             const {url} = req.body;
             const {topic} = req.params;
-            let object = await PubSubProcessor.createTopAndSub(topic, url);
-            console.log('object:', object);
+            await PubSubProcessor.createTopAndSub(topic, url);
             const responseData = await AppProcessor.getSimpleResponse(this.model, {topic, url}, HTTP_CREATED, this.lang.create, queryParser);
             return res.status(HTTP_CREATED).json(responseData);
         } catch (e) {
@@ -62,7 +61,7 @@ export class PubSubController extends AppController {
         try {
             const {topic, data} = req.body;
             await PubSubProcessor.publishData(topic, data);
-            const response = await AppProcessor.getSimpleResponse(this.model, {topic, data}, HTTP_CREATED, this.lang.create, queryParser);
+            const response = await AppProcessor.getSimpleResponse(this.model, {topic, data}, HTTP_OK, this.lang.create, queryParser);
             return res.status(HTTP_CREATED).json(response);
         } catch (e) {
             return next(e);
