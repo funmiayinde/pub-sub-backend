@@ -1,17 +1,13 @@
 version: '3'
 services:
-    db:
-        image: 'postgres'
-        restart: 'always'
-    api:
+    pubsubapi:
         image: 'pubsub-api'
+        restart: always
         build:
             context: .
             dockerfile: Dockerfile.dev
         ports:
         - '3000:3000'
-        depends_on:
-        - db
         environment:
         - NODE_ENV=development
         - PORT=3000
