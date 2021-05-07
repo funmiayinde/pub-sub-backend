@@ -107,8 +107,8 @@ describe('Set For Login Test', () => {
 
         it('Should test fail to publish if topic does not exist ', async () => {
             const topic = 'topic4';
-            const response = await server.post(`${PUB_SUB_URL_PUBLISH}`)
-                .send({topic, data: {message: 'http://test4'}})
+            const response = await server.post(`${PUB_SUB_URL_PUBLISH}/${topic}`)
+                .send({data: {message: 'http://test4'}})
                 .expect('Content-type', 'application/json; charset=utf-8')
                 .expect(HTTP_NOT_FOUND);
 

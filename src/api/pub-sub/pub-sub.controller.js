@@ -75,12 +75,17 @@ export class PubSubController extends AppController {
      * */
     async publish(req, res, next) {
         const queryParser = new QueryPaser(Object.assign({}, req.query));
-        const validate = AppProcessor.validate(this.model, 'publish', req.body, lang.get('error').inputs);
+        const obj = {
+            topic: req.params,
+            data: req.body
+        };
+        const validate = AppProcessor.validate(this.model, 'publish', obj, lang.get('error').inputs);
         if (validate) {
             return next(validate);
         }
         try {
-            const {topic, data} = req.body;
+            const {topic} = req.params;
+            const {data} = req.body;
             let object = await this.model.findOne({topic});
             if (object) {
                 for (let url of object.subscribers) {
